@@ -1,4 +1,4 @@
-const URL = "http://localhost:8084/jwtbackend";
+const URL = require('../package.json').config.url;
 
 function handleHttpErrors(res) {
   if (!res.ok) {

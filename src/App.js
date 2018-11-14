@@ -5,6 +5,8 @@ import ShipTable from "./ShipTable";
 import PersonTable from "./PersonTable";
 import PlanetTable from "./PlanetTable";
 
+const URL = require('../package.json').config.url;
+
 
 class LogIn extends Component {
   constructor(props) {
