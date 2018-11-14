@@ -29,8 +29,7 @@ class LogIn extends Component {
           onSubmit={this.login}
           onChange={this.onChange}
         >
-          <div className="form-group mb-4">
-            <input
+          <div className="form-group mb-4"><input
               className="form-control text-center"
               type="text"
               id="username"
@@ -66,42 +65,11 @@ class LoggedIn extends Component {
   render() {
     return (
       <div>
-        <h2>Data Received from server</h2>
         <h3>{this.state.dataFromServer}</h3>
       </div>
     );
   }
 }
-
-const NavMenu = () => {
-  return (
-    <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/">
-            Home
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/profilepage">
-            Profile Page
-          </NavLink>
-        </li>
-      </ul>
-    </nav>
-  );
-};
-
-const Welcome = ({ match }) => {
-  return (
-    <div>
-      <h1>Welcome to CA3</h1>
-      <p>
-        Click the <NavLink to="/profilepage">Login</NavLink> link to login
-      </p>
-    </div>
-  );
-};
 
 class App extends Component {
   constructor(props) {
@@ -123,7 +91,7 @@ class App extends Component {
           <div>
             <NavMenu />
             <div className="container-fluid">
-              <Route exact path="/" render={() => <div><Welcome/></div>} />
+              <Route exact path="/" render={() => <div><WelcomeMessage/></div>} />
               <Route path="/profilepage" render={() => <div>
                 {!this.state.loggedIn ? (
                 <LogIn login={this.login} />
@@ -141,5 +109,35 @@ class App extends Component {
     );
   }
 }
+
+const NavMenu = ({match}) => {
+  return (
+    <nav className="navbar navbar-expand-sm bg-dark navbar-dark mb-4">
+      <ul className="navbar-nav">
+        <li className="nav-item">
+          <NavLink className="nav-link" exact to="/">
+            Home
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" exact to="/profilepage">
+            Profile Page
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
+};
+
+const WelcomeMessage = ({ match }) => {
+  return (
+    <div>
+      <h1>Welcome to CA3</h1>
+      <p>
+        Click <NavLink to="/profilepage">here</NavLink> to go to your profile page.
+      </p>
+    </div>
+  );
+};
 
 export default App;
