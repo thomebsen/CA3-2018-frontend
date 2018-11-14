@@ -79,8 +79,8 @@ const NavMenu = () => {
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" exact to="/loginpage">
-            Login Page
+          <NavLink className="nav-link" exact to="/profilepage">
+            Profile Page
           </NavLink>
         </li>
       </ul>
@@ -93,7 +93,7 @@ const Welcome = ({ match }) => {
     <div>
       <h1>Welcome to CA3</h1>
       <p>
-        Click the <NavLink to="/loginPage">Login</NavLink> link to login
+        Click the <NavLink to="/profilepage">Login</NavLink> link to login
       </p>
     </div>
   );
@@ -120,7 +120,7 @@ class App extends Component {
             <NavMenu />
             <div className="container-fluid">
               <Route exact path="/" render={() => <div><Welcome/></div>} />
-              <Route path="/loginpage" render={() => <div>
+              <Route path="/profilepage" render={() => <div>
                 {!this.state.loggedIn ? (
                 <LogIn login={this.login} />
               ) : (
