@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import facade from "./apiFacade";
 import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
+import ShipTable from "./ShipTable";
+import PersonTable from "./PersonTable";
+import PlanetTable from "./PlanetTable";
+
 
 class LogIn extends Component {
   constructor(props) {
