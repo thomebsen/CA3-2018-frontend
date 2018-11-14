@@ -61,9 +61,11 @@ class LoggedIn extends Component {
     super(props);
     this.state = { dataFromServer: "Fetching!!" };
   }
+  
   componentDidMount() {
     facade.fetchData().then(res => this.setState({ dataFromServer: res }));
   }
+  
   render() {
     return (
       <div>
@@ -86,27 +88,25 @@ class App extends Component {
     facade.login(user, pass).then(res => this.setState({ loggedIn: true }));
   };
 
+
   render() {
     return (
       <Router>
-        <Switch>
-          <div>
-            <NavMenu />
-            <div className="container-fluid">
+        <div>
+        <NavMenu />
+        <div className="container-fluid">
+          <Switch>
               <Route exact path="/" render={() => <div><WelcomeMessage/></div>} />
-              <Route path="/profilepage" render={() => <div>
-                {!this.state.loggedIn ? (
-                <LogIn login={this.login} />
-              ) : (
-                <div>
-                  <LoggedIn />
-                  <button onClick={this.logout}>Logout</button>
-                </div>
-              )}
+                <Route path="/profilepage" render={() => <div>{!this.state.loggedIn ? (<LogIn login={this.login} />) : (
+                  <div>
+                    <LoggedIn />
+                    <NavLink to="/" onClick={this.logout}>Logout</NavLink>
+                  </div>
+                )}
               </div>}/>
-            </div>
+          </Switch>
           </div>
-        </Switch>
+        </div>
       </Router>
     );
   }
