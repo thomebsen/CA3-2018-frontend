@@ -8,10 +8,7 @@ function handleHttpErrors(res) {
 }
 
 class ApiFacade {
-  fetchData = () => {
-    const options = this.makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
-  };
+  
 
   setToken = token => {
     localStorage.setItem("jwtToken", token);
@@ -38,6 +35,24 @@ class ApiFacade {
         this.setToken(res.token);
       });
   };
+
+
+  fetchAllSpaceships = () => {
+    const options = this.makeFetchOptions("GET");
+    return fetch(URL + "/api/info/spaceships", options, true)
+      .then(handleHttpErrors)
+  }
+  fetchAllPersons = () => {
+    const options = this.makeFetchOptions("GET");
+    return fetch(URL + "/api/info/people", options, true)
+      .then(handleHttpErrors)
+  }
+  fetchAllPlanets = () => {
+    const options = this.makeFetchOptions("GET");
+    return fetch(URL + "/api/info/planets", options, true)
+      .then(handleHttpErrors)
+  }
+
 
   makeOptions(method, addToken, body) {
     var opts = {
