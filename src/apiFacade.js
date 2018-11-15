@@ -64,6 +64,12 @@ class ApiFacade {
       .then(handleHttpErrors)
   }
 
+  fetchMyFavorites = () => {
+    const options = this.makeOptions("GET");
+    return fetch(URL + "/api/swapi/favorit", options, true)
+        .then(handleHttpErrors)
+  }
+
 
   makeOptions(method, addToken, body) {
     var opts = {

@@ -20,6 +20,7 @@ class PersonTable extends Component {
 
 
     componentDidMount(){
+        console.log("mounting");
         this.props.facade.fetchAllPersons()
         .then(res=> {
             this.setState({dataFromServer: res.results})})
@@ -44,11 +45,11 @@ class PersonTable extends Component {
 
     body(){
         const results = this.state.dataFromServer;
+        console.log("body");
         const inner = results.map((rowData, index) => {
             return (
                 <tr key={index}>
                     <td>{rowData.name}</td>
-                  
                     <td>{rowData.height} cm</td>
                     <td>{rowData.mass}</td>
                     <td>{rowData.gender}</td>
