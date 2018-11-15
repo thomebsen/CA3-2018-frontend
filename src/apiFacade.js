@@ -10,7 +10,8 @@ function handleHttpErrors(res) {
 class ApiFacade {
   fetchData = () => {
     const options = this.makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+    return fetch(URL + "/api/info/user", options)
+    .then(handleHttpErrors);
   };
 
   setToken = token => {
@@ -32,6 +33,7 @@ class ApiFacade {
       username: user,
       password: pass
     });
+
     return fetch(URL + "/api/login", options, true)
       .then(handleHttpErrors)
       .then(res => {
@@ -42,17 +44,23 @@ class ApiFacade {
 
   fetchAllSpaceships = () => {
     const options = this.makeFetchOptions("GET");
-    return fetch(URL + "/api/info/spaceships", options, true)
+    return fetch(URL + "/api/swapi/info/spaceships", options, true)
       .then(handleHttpErrors)
   }
   fetchAllPersons = () => {
-    const options = this.makeFetchOptions("GET");
-    return fetch(URL + "/api/info/people", options, true)
+    const options = this.makeOptions("GET");
+    return fetch(URL + "/api/swapi/person", options, true)
       .then(handleHttpErrors)
   }
   fetchAllPlanets = () => {
     const options = this.makeFetchOptions("GET");
     return fetch(URL + "/api/info/planets", options, true)
+      .then(handleHttpErrors)
+  }
+
+  fetchSinglePerson = () => {
+    const options = this.makeFetchOptions("GET");
+    return fetch(URL + "/api/swapi/persons/1", options, true)
       .then(handleHttpErrors)
   }
 

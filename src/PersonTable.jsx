@@ -20,7 +20,6 @@ class PersonTable extends Component {
 
 
     componentDidMount(){
-       
         this.props.facade.fetchAllPersons()
         .then(res=> {
             this.setState({dataFromServer: res.results})})
@@ -33,8 +32,7 @@ class PersonTable extends Component {
         return (
             <thead>
                 <tr>
-                    <td>Name</td>
-                   
+                    <td>Name</td>                  
                     <td>Height</td>
                     <td>Mass</td>
                     <td>Gender</td>
@@ -72,7 +70,7 @@ class PersonTable extends Component {
                     {this.head()}
                     {this.body()}
                 </table>
-                <NavLink activeClassName="active" to="/loginPage">
+                <NavLink activeClassName="active" to="/profilepage">
                     <button className="btn btn-default" >Back</button>
                 </NavLink>
             </div>

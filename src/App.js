@@ -97,13 +97,27 @@ class App extends Component {
         <div className="container-fluid">
           <Switch>
               <Route exact path="/" render={() => <div><WelcomeMessage/></div>} />
-                <Route path="/profilepage" render={() => <div>{!this.state.loggedIn ? (<LogIn login={this.login} />) : (
-                  <div>
-                    <LoggedIn />
-                    <NavLink to="/" onClick={this.logout}>Logout</NavLink>
-                  </div>
-                )}
+              <Route path="/getperson" render={() => <div><PersonTable facade={facade} /></div>} />
+              <Route path="/profilepage" render={() => 
+                <div>
+                  {!this.state.loggedIn ? (<LogIn login={this.login} />) : (
+                    <div>
+                      <LoggedIn />
+                      <NavLink to="/" onClick={this.logout}>Logout</NavLink>
+                      <Switch>
+                        <div>
+                          <ul className="categoryList">
+                            <li><NavLink exact to="/getperson">Get Person</NavLink></li>
+                          </ul>
+                        </div>
+                      </Switch>
+
+                      <div>
+                      </div>
+                    </div>
+                  )}
               </div>}/>
+              <Route component={NoMatch} />
           </Switch>
           </div>
         </div>
@@ -141,5 +155,14 @@ const WelcomeMessage = ({ match }) => {
     </div>
   );
 };
+
+const NoMatch =({ location }) => {
+  return (
+    <div className="absolute-center text-center">
+      <h1>404</h1>
+      <h5>page <code>{location.pathname}</code> not found</h5>
+    </div>
+  )
+}
 
 export default App;
