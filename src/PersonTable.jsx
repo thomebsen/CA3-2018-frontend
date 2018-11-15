@@ -32,10 +32,10 @@ class PersonTable extends Component {
         return (
             <thead>
                 <tr>
-                    <td>Name</td>                  
-                    <td>Height</td>
-                    <td>Mass</td>
-                    <td>Gender</td>
+                    <th>Name</th>
+                    <th>Height</th>
+                    <th>Mass</th>
+                    <th>Gender</th>
                 </tr>
                 
             </thead>
@@ -49,7 +49,7 @@ class PersonTable extends Component {
                 <tr key={index}>
                     <td>{rowData.name}</td>
                   
-                    <td>{rowData.height}</td>
+                    <td>{rowData.height} cm</td>
                     <td>{rowData.mass}</td>
                     <td>{rowData.gender}</td>
                 </tr>
