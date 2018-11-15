@@ -45,6 +45,7 @@ class PersonTable extends Component {
     body(){
         const results = this.state.dataFromServer;
         const inner = results.map((rowData, index) => {
+            console.log(rowData)
             return (
                 <tr key={index}>
                     <td>{rowData.name}</td>
