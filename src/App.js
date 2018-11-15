@@ -109,7 +109,7 @@ class App extends Component {
                         <div>
                           <ul className="categoryList">
                             <li><NavLink exact to="/getperson">Get Person</NavLink></li>
-                            <li><NavLink exact to="/getfavorite">Get Person</NavLink></li>
+                            <li><NavLink exact to="/getfavorite">Get favorites</NavLink></li>
                           </ul>
                         </div>
                       </Switch>
