@@ -3,8 +3,7 @@ import facade from "./apiFacade";
 import { HashRouter as Router, Route, Switch, NavLink } from "react-router-dom";
 import ShipTable from "./ShipTable";
 import PersonTable from "./PersonTable";
-import PlanetTable from "./PlanetTable";
-import FavoriteTable from "./FavoriteTable";
+import FetchFavorite from "./fetchFavoriteTest";
 
 const URL = require('../package.json').config.url;
 
@@ -99,21 +98,21 @@ class App extends Component {
           <Switch>
               <Route exact path="/" render={() => <div><WelcomeMessage/></div>} />
               <Route path="/getperson" render={() => <div><PersonTable facade={facade} /></div>} />
-              <Route path="/my-favorites" render={() => <div><FavoriteTable facade={facade} /></div>} />
+              <Route path="/getfavorite" render={() => <div><FetchFavorite /></div>} />
               <Route path="/profilepage" render={() => 
                 <div>
                   {!this.state.loggedIn ? (<LogIn login={this.login} />) : (
                     <div>
                       <LoggedIn />
                       <NavLink to="/" onClick={this.logout}>Logout</NavLink>
-
+                      <Switch>
                         <div>
                           <ul className="categoryList">
                             <li><NavLink exact to="/getperson">Get Person</NavLink></li>
-                              <li><NavLink to="/my-favorites">Get my favorites characters</NavLink></li>
+                            <li><NavLink exact to="/getfavorite">Get Person</NavLink></li>
                           </ul>
                         </div>
-
+                      </Switch>
 
                       <div>
                       </div>
