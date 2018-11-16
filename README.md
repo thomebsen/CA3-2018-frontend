@@ -1,3 +1,10 @@
+<h3>Getting started:</h3>
+
+<b>
+  - Clone the project.
+  - Run "yarn install" or "npm install" in the project folder.
+<b>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
