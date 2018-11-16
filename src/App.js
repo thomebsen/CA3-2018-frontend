@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import facade from "./apiFacade";
 import {HashRouter as Router, Route, Switch, NavLink} from "react-router-dom";
-import ShipTable from "./ShipTable";
-import PersonTable from "./PersonTable";
-import FetchFavorite from "./fetchFavoriteTest";
+import FetchFavorite from "./tables/FetchFavoriteList";
+import DummyTableClient from "./tables/DummyDataTableClient";
+import DummyTableRemote from "./tables/DummyDataTableRemote";
+import SwapiTable from "./tables/PersonTable";
 
 const URL = require('../package.json').config.url;
 
@@ -95,7 +96,6 @@ class App extends Component {
 
 
     render() {
-      //  console.log(facade.getProfile())
         return (
             <Router>
                 <div>
@@ -103,32 +103,17 @@ class App extends Component {
                     <div className="container-fluid">
                         <Switch>
                             <Route exact path="/" render={() => <div><WelcomeMessage/></div>}/>
-                            <Route path="/getperson" render={() => <div><PersonTable facade={facade}/></div>}/>
-                            <Route path="/getfavorite" render={() => <div><FetchFavorite/></div>}/>
+                            <Route path="/getperson" render={() => <div><SwapiTable facade={facade}/></div>}/>
+                            <Route path="/getfavorite" render={() => <div><FetchFavorite facade={facade}/></div>}/>
+                            <Route path="/getdummy" render={() => <div><DummyTableClient facade={facade}/></div>}/>
+                            <Route path="/getdummy2" render={() => <div><DummyTableRemote facade={facade}/></div>}/>
                             <Route path="/profilepage" render={() =>
                                 <div>
                                     {!this.state.loggedIn ? (<LogIn login={this.login}/>) : (
                                         <div>
                                             <LoggedIn/>
                                             <NavLink to="/" onClick={this.logout}>Logout</NavLink>
-
-                                            <div>
-                                                <ul className="categoryList">
-                                                    <li><NavLink exact to="/getperson">Get swapi people</NavLink>
-                                                    </li>
-                                                    
-                                                    <li><NavLink exact to="/getfavorite">Get favorite
-                                                        characters</NavLink></li>
-                                                    {facade.getProfile().roles.includes("admin") ? (
-                                                        <li>This is only for admin!</li>
-                                                    ) : null}
-
-                                                </ul>
-                                            </div>
-
-
-                                            <div>
-                                            </div>
+                                            <PageViewNav/>
                                         </div>
                                     )}
                                 </div>}/>
@@ -139,6 +124,21 @@ class App extends Component {
             </Router>
         );
     }
+}
+
+const PageViewNav = ({match}) => {
+    return (
+        <div>
+            <ul className="categoryList">
+                <li><NavLink exact to="/getperson">Get Person</NavLink></li>
+                {facade.getProfile().roles.includes("admin") ? (
+                    <li><NavLink exact to="/getfavorite">Get Favorite</NavLink></li>
+                ) : null}
+                <li><NavLink exact to="/getdummy">Get Dummy Pagination Client</NavLink></li>
+                <li><NavLink exact to="/getdummy2">Get Dummy Pagination Remote</NavLink></li>
+            </ul>
+        </div>
+    )
 }
 
 const NavMenu = ({match}) => {

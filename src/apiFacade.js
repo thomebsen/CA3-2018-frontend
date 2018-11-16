@@ -62,9 +62,10 @@ class ApiFacade {
         return fetch(URL + "/api/swapi/person", options, true)
             .then(handleHttpErrors)
     }
-    fetchAllPlanets = () => {
+
+    fetchAllDummy = () => {
         const options = this.makeOptions("GET");
-        return fetch(URL + "/api/info/planets", options, true)
+        return fetch(URL + "/api/dummy", options, true)
             .then(handleHttpErrors)
     }
 
