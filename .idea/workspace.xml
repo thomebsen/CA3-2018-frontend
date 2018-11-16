@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f67eda2-6b85-4a93-b07f-1a65273447d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/tables/DummyDataTableClient.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tables/DummyDataTableRemote.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tables/FetchFavoriteList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PersonTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/tables/PersonTable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlanetTable.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShipTable.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apiFacade.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/apiFacade.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fetchFavoriteTest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/numberList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="8f67eda2-6b85-4a93-b07f-1a65273447d2" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -232,12 +217,12 @@
       <updated>1542275326717</updated>
       <workItem from="1542275328195" duration="5418000" />
       <workItem from="1542290054843" duration="958000" />
-      <workItem from="1542357831618" duration="11335000" />
+      <workItem from="1542357831618" duration="11537000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17711000" />
+    <option name="totallyTimeSpent" value="17913000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="19" y="23" width="1386" height="833" extended-state="0" />
