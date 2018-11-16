@@ -95,6 +95,7 @@ class App extends Component {
 
 
     render() {
+      //  console.log(facade.getProfile())
         return (
             <Router>
                 <div>
@@ -111,15 +112,20 @@ class App extends Component {
                                             <LoggedIn/>
                                             <NavLink to="/" onClick={this.logout}>Logout</NavLink>
 
-                                                <div>
-                                                    <ul className="categoryList">
-                                                        <li><NavLink exact to="/getperson">Get swapi people</NavLink>
-                                                        </li>
-                                                        <li><NavLink exact to="/getfavorite">Get favorite
-                                                            characters</NavLink></li>
-                                                    </ul>
-                                                </div>
-                                            
+                                            <div>
+                                                <ul className="categoryList">
+                                                    <li><NavLink exact to="/getperson">Get swapi people</NavLink>
+                                                    </li>
+                                                    
+                                                    <li><NavLink exact to="/getfavorite">Get favorite
+                                                        characters</NavLink></li>
+                                                    {facade.getProfile().roles.includes("admin") ? (
+                                                        <li>This is only for admin!</li>
+                                                    ) : null}
+
+                                                </ul>
+                                            </div>
+
 
                                             <div>
                                             </div>
