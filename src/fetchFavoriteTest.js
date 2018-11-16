@@ -27,11 +27,14 @@ class PersonTable extends Component {
   render() {
     return (
       <div>
-        <p>asdasd</p>
+        <h3>Favorite characters:</h3>
         <div>
             {this.state.theFetchedData}
             {console.log(this.state)}
         </div>
+          <NavLink activeClassName="active" to="/profilepage">
+              <button className="btn btn-default" >Back</button>
+          </NavLink>
       </div>
     );
   }
